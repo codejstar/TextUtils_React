@@ -22,7 +22,8 @@ const TextForm = ({heading,mode,showAlert}) => {
      var text = document.getElementById("exampleFormControlTextarea1");
      text.select();
     // text.setSelectionRange(0,9999);
-     navigator.clipboard.writeText(text.value)
+     navigator.clipboard.writeText(text.value);
+     document.getSelection.removeAllRanges();
      showAlert("Copied to  clipboard", "success");
    }
 
@@ -42,27 +43,27 @@ const TextForm = ({heading,mode,showAlert}) => {
       id="exampleFormControlTextarea1"
       rows={8}
       value={text}
-      style={{backgroundColor: mode === 'dark'?'gray':'white', color: mode === 'light'?'black':'white'}}
+      style={{backgroundColor: mode === 'dark'?'#13466e':'white', color: mode === 'light'?'black':'white'}}
       placeholder='Enter Text here...'
       onChange={(e) => setText(e.target.value)}
     />
   </div>
-  <button className="btn btn-primary mx-2" onClick={() => upperCase()}>Convert to Uppercase</button>
-  <button className="btn btn-primary mx-2" onClick={() => lowerCase()}>Convert to Lowercase</button>
-  <button className="btn btn-primary mx-2" onClick={() => handleCleartext()}>Clear Text</button>
-  <button className="btn btn-primary mx-2" onClick={() => handleCopy()}>Copy Text</button>
-  <button className="btn btn-primary mx-2" onClick={() => handleExtraSpaces()}>Remove Extra Spaces</button>
+  <button disabled={text.length === 0} className="btn btn-primary mx-2 my-2" onClick={() => upperCase()}>Convert to Uppercase</button>
+  <button disabled={text.length === 0} className="btn btn-primary mx-2 my-2" onClick={() => lowerCase()}>Convert to Lowercase</button>
+  <button disabled={text.length === 0} className="btn btn-primary mx-2 my-2" onClick={() => handleCleartext()}>Clear Text</button>
+  <button disabled={text.length === 0} className="btn btn-primary mx-2 my-2" onClick={() => handleCopy()}>Copy Text</button>
+  <button disabled={text.length === 0} className="btn btn-primary mx-2 my-2" onClick={() => handleExtraSpaces()}>Remove Extra Spaces</button>
   </div>
 
   <div className="container my-2" style={{color : mode === 'dark'?'white':'black'}}>
      <h1>Your text summary</h1>
-     <p>{text.split(" ").length} words, {text.length} characters</p>
-     <p>{0.008 * text.split(" ").length} Minutes read.</p>
+     <p>{text.split(" ").filter((el) => {return el.length !== 0}).length} words, {text.length} characters</p>
+     <p>{0.008 * text.split(" ").filter((el) => {return el.length !== 0}).length} Minutes read.</p>
      <h2>Preview</h2>
-     <p>{text.length>0?text:"Enter something in text area to preview it ....."}</p>
+     <p>{text.length>0?text:"Nothing to preview!"}</p>
   </div>
 </>
-  )
+  ) 
 }
 
 export default TextForm

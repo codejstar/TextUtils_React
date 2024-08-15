@@ -9,6 +9,10 @@ const Alert = (props) => {
     }
     // console.log(capitalize("hello"))
   return (
+    //cls :- cumulative layout shift
+<div style={{height:'50px'}}>
+{
+
  props.alert && <div className={`alert alert-${props.alert.type} alert-dismissible fade show role="alert" `}>
   <strong>{capitalize(props.alert.type)}</strong> {props.alert.message}
 
@@ -18,8 +22,9 @@ const Alert = (props) => {
     data-bs-dismiss="alert"
     aria-label="Close"
   /> */}
+  </div>
+}
 </div>
-
 
   )
 }
