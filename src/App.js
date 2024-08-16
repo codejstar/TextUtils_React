@@ -25,7 +25,18 @@ function App() {
       }, 3000)
   }
 
- const toggleMode = () => {
+  // const removeBodyClasses = () =>{
+  //   document.body.classList.remove('bg-light');
+  //   document.body.classList.remove('bg-dark');
+  //   document.body.classList.remove('bg-warning');
+  //   document.body.classList.remove('bg-success');
+  //   document.body.classList.remove('bg-light');
+  //   document.body.classList.remove('bg-gray');
+  // }
+
+ const toggleMode = (cls) => {
+  //  removeBodyClasses();
+  // document.body.classList.add('bg-'+cls);
     if(darkMode === 'light'){
        setDarkMode('dark');
       //  setCol('white');
@@ -41,6 +52,8 @@ function App() {
        document.title = 'textUtils - Light Mode';
       showAlert("Light Mode has been enabled", "success")
     }
+
+
  }
 
  

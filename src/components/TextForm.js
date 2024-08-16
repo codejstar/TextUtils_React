@@ -23,7 +23,7 @@ const TextForm = ({heading,mode,showAlert}) => {
      text.select();
     // text.setSelectionRange(0,9999);
      navigator.clipboard.writeText(text.value);
-     document.getSelection.removeAllRanges();
+    //  document.getSelection.removeAllRanges();
      showAlert("Copied to  clipboard", "success");
    }
 
@@ -57,7 +57,7 @@ const TextForm = ({heading,mode,showAlert}) => {
 
   <div className="container my-2" style={{color : mode === 'dark'?'white':'black'}}>
      <h1>Your text summary</h1>
-     <p>{text.split(" ").filter((el) => {return el.length !== 0}).length} words, {text.length} characters</p>
+     <p>{text.split(/\s+/).filter((el) => {return el.length !== 0}).length} words, {text.length} characters</p>
      <p>{0.008 * text.split(" ").filter((el) => {return el.length !== 0}).length} Minutes read.</p>
      <h2>Preview</h2>
      <p>{text.length>0?text:"Nothing to preview!"}</p>

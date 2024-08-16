@@ -46,6 +46,14 @@ const Navbar = ({mode,toggle}) => {
           Search
         </button>
       </form> */}
+
+       {/* <div className="d-flex">
+          <div className="bg-primary rounded mx-2" style={{height: '30px', width: '30px', cursor: 'pointer'}} onClick={() => {toggle('primary')}} ></div>
+          <div className="bg-danger rounded mx-2" style={{height: '30px', width: '30px', cursor: 'pointer'}} onClick={() => {toggle('danger')}} ></div>
+          <div className="bg-success rounded mx-2" style={{height: '30px', width: '30px', cursor: 'pointer'}} onClick={() => {toggle('success')}} ></div>
+          <div className="bg-warning rounded mx-2" style={{height: '30px', width: '30px', cursor: 'pointer'}} onClick={() => {toggle('warning')}} ></div>
+       </div> */}
+
        <div className={`form-check form-switch d-flex text-${mode === 'light'?'black': 'light'}`}>
       <input className="form-check-input me-2" onClick={toggle} type="checkbox" role="switch" id="flexSwitchCheckChecked"/>
       <label className="form-check-label" htmlFor="flexSwitchCheckChecked">Change mode</label>

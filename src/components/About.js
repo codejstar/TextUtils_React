@@ -5,7 +5,7 @@ const About = () => {
 
     const [myStyle, setMyStyle] = useState({
         color: 'white',
-        backgroundColor: 'black'
+        backgroundColor: '#13466e'
     })
 
     const [btnText, setBtnText] = useState("Enable dark mode")
@@ -21,7 +21,7 @@ const About = () => {
      else{
          setMyStyle({
             color: 'white',
-            backgroundColor: 'black'
+            backgroundColor: '#13466e'
         })
         setBtnText("Enable Light Mode")
      }
@@ -38,7 +38,7 @@ const About = () => {
         type="button"
         data-bs-toggle="collapse"
         data-bs-target="#collapseOne"
-        aria-expanded="true"
+        aria-expanded="false"
         aria-controls="collapseOne"
         style={myStyle}
       >
